@@ -138,8 +138,8 @@
         <div class="question5">
             <p class="bold">Q5: Create examples to explain callback function</p>
             <p class="ans">ANS :-</p>
+            <p class="ans">#A callback function is a function passed to another function as an argument. Callbacks promote asynchronous programming</p>
             <pre class="ans">
-                #A callback function is a function passed to another function as an argument. Callbacks promote asynchronous programming
 
 
                 function divide(num1, num2, callback) {
@@ -159,14 +159,127 @@
         <div class="question6">
             <p class="bold">Q6: Create examples to explain callback hell function</p>
             <p class="ans">ANS:- </p>
-            <pre class="ans"></pre>
+            <p class="ans">The phenomenon which happens when we nest multiple callbacks within a function is called a callback hell. The shape of the resulting code structure resembles a pyramid and hence callback hell is also called the “pyramid of the doom”. It makes the code very difficult to understand and maintain.</p>
+            <pre class="ans">
+
+
+
+                setTimeout(()=>{
+                    console.log("1")
+                    setTimeout(()=>{
+                        console.log("2")
+                        setTimeout(()=>{
+                            console.log("3");
+                            setTimeout(()=>{
+                                console.log("4");
+                                setTimeout(()=>{
+                                    console.log("5");
+                                    setTimeout(()=>{
+                                        console.log("6");
+                                        setTimeout(()=>{
+                                            console.log("7")
+                                        },7000)
+                                    },6000)
+                                },5000)
+                            },4000)
+                        },3000)
+                    },2000)
+                },1000)   
+            </pre>
+            <p class="ams">OUTPUT :- </p><p class="red" id="ans6"></p>
+        </div>
+        <hr>
+        <div class="question7">
+            <p class="bold">Q7 :Create examples to explain promises function</p>
+            <p class="ans">ANS :-</p>
+            <p class="ans">Promise Function are the functions that return a promise object. A promise is an object which represents the completion or failure of an asynchronous operation
+                along with its result. They come with in-built error handling. Here inside the findSum() function, promise object "pr" has been created.
+                Then the function is called and ".then" block is attached to handle the resolved part and ".catch" handles the reject part.</p>
+            <pre class="ans">
+
+
+                function findSum(num1,num2){
+                    let pr = new Promise(function(res,rej){
+                        setTimeout(function(){
+                            let sum = num1 + num2;
+                            if(isNaN(sum))
+                            {
+                                rej("Try Again! Enter a valid number");
+                            }
+                            else
+                            {
+                                res(sum);
+                            }
+                        }, 2000)
+                    })
+                    return pr;
+                }
+                
+                findSum(26,23).then(function(ans){
+                    console.log("Sum =", ans);
+                }).catch(function(err){
+                    console.log(err);
+                })
+            </pre>
+            <p class="ans inline">OUTPUT :-</p><p class="red inline" id="ans7"></p>
+        </div>
+        <hr>
+        <div class="question8">
+            <p class="bold">Q8: Create examples to explain async await function</p>
+            <p class="ans">ANS :-</p>
+            <pre class="ans">
+                function fetchData() {
+                    return new Promise(resolve => {
+                      setTimeout(() => resolve('Data received!'), 2000);
+                    });
+                  }
+                  
+                  async function printData() {
+                    console.log("Fetching data...");
+                    const data = await fetchData();
+                    console.log(data);
+                  }
+                  
+                  printData();
+            </pre>
+            <p class="ans">OUTPUT :-</p><p class="red" id="ans8"></p>
+        </div>
+        <hr>
+        <div class="question9">
+            <p class="bold"> Q9: </p>
+            <p class="ans">ANS :-</p>
+            <pre>
+                function mypromise(num ){
+                    return new Promise((resolve, reject)=>{
+                        if(num%2 === 0){
+                            resolve("This is even")
+                        }
+                        else{
+                            rej("This is Odd")
+                        }
+                    })
+                }
+                
+                const mypromise1 = new Promise((resolve, reject)=>{
+                    if(true){
+                        resolve("hi EAC _01")
+                    }
+                    else{
+                        reject("Soryy !!!!")
+                    }
+                })
+                
+                Promise.all([mypromise(20), mypromise1]).then((data)=>{
+                    console.log(data)
+                }).catch((data)=>{
+                    console.log(data)
+                })
+            </pre>
+            <p class="ans inline">OUTPUT :-</p><p class="red inline" id="ans9"></p>
         </div>
 
     </div>
 
-
-
-
-    <script src="./script.js"></script>
+  <script src="./script.js"></script>
 </body>
 </html>
