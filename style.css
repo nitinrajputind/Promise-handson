@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+h1{
+    text-align: center;
+    text-decoration: underline red;
+    color: black;
+    margin-top: 30px;
+    font-size: 40px;
+    font-weight: 800;
+}
+hr{
+    background: grey;
+    height: 2px;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.maincontanier{
+    width: 90vw;
+    margin: auto;
+}
+.bold{
+    font-size: 20px;
+    font-weight: 600;
+}
+.ans{
+    color: blue;
+}
+.inline{
+    display: inline-block;
+}
+.red{
+    color: red;
+}

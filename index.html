@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise Async Await</title>
+    <!-- link External StyleSheet -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <h1>*PROMISE, ASYNC & AWAIT *</h1>
+    <hr>
+    <div class="maincontanier">
+        <div class="question1">
+            <p class="bold">Q1: Write one example explaining how you can write a callback function. </p>
+            <p class="ans">ANS :- </p>
+            <pre class="ans">
+                function calculate(num1, num2){
+                    return num1 * num2
+                }
+                
+                function displayDate(name, age){
+                    console.log(`${name} : age is ${age}`)
+                }
+                
+                displayDate("Nitin", calculate(19,1));
+            </pre>
+            <p class="ans inline">OUTPUT :-  </p><p class="inline red" id="ans1"> </p>
+        </div>
+        <hr>
+        <div class="question2">
+            <p class="bold">Q2: Write a callback function to print numbers from 1 to 7, in which 1 should be printed after 1 sec, 2 should be printed after 2 sec, 3 should be printed after 3 sec, and so on. 
+                <br>
+                Explain callback hell.
+                <br>
+                Numbers
+                <br>
+                1 <br>
+                2 <br>
+                3 <br>
+                4 <br>
+                5 <br>
+                6 <br>
+                7
+            </p>
+            <p class="ans">ANS :- </p>
+            <pre class="ans">
+                setTimeout(()=>{
+                    console.log("1")
+                    setTimeout(()=>{
+                        console.log("2")
+                        setTimeout(()=>{
+                            console.log("3");
+                            setTimeout(()=>{
+                                console.log("4");
+                                setTimeout(()=>{
+                                    console.log("5");
+                                    setTimeout(()=>{
+                                        console.log("6");
+                                        setTimeout(()=>{
+                                            console.log("7")
+                                        },7000)
+                                    },6000)
+                                },5000)
+                            },4000)
+                        },3000)
+                    },2000)
+                },1000)
+            </pre>
+            <p class="ans inline">OUTPUT :- </p> <p class="red" id="ans2"></p>
+        </div>
+        <hr>
+        <div class="question3">
+            <p class="bold">Q1: "Write the promise function to print numbers from 1 to 7, in which 1 should be printed after 1 sec, 2 should be printed after 2 sec, 3 should be printed after 3 sec, and so on. 
+                <br>
+                Numbers <br>
+                1 <br>
+                2 <br>
+                3 <br>
+                4 <br>
+                5 <br>
+                6 <br>
+                7 <br>
+            </p>
+            <pre class="ans">
+                let ans3 = document.getElementById("ans3")
+                function promiseChain(alpha, timeout){
+                    return new Promise((res, rej)=>{
+                        setTimeout(()=>{
+                            console.log(alpha);
+                            res("This promise is resolved !!!....")
+                        },timeout);
+                    })
+                }
+                function visible(){
+                    promiseChain("1",1000)
+                    .then(()=>promiseChain("2", 2000))
+                    .then(()=>promiseChain("3", 3000))
+                    .then(()=>promiseChain("4", 4000))
+                    .then(()=>promiseChain("5", 5000))
+                    .then(()=>promiseChain("6", 6000))
+                    .then(()=>promiseChain("7", 7000))
+                }
+                visible();
+            </pre>
+            <p class="ans">OUTPUT :-</p><p class="red" id="ans3"></p>
+        </div>
+        <hr>
+        <div class="question4">
+            <p class="bold">Q4: Create a promise function accepting an argument, if yes is passed to the function then it should go to resolved state and print Promise Resolved, and if nothing is passed 
+                then it should go to reject the state and catch the error and print Promise Rejected
+            </p>
+            <p class="ans">ANS :-</p>
+            <pre class="ans">
+                let variable = true 
+                function promiseFun(){
+                    return new Promise((resolve,reject)=>{
+                        if(variable === true){
+                            resolve("Promise resolve succesfully....")
+                        }
+                        else{
+                            reject(Error("Promise rejected !!!"))
+                        }
+                    })
+                }
+                
+                promiseFun(variable).then((date)=>{
+                    console.log(date)
+                }).catch((err)=>{
+                    console.log(err)
+                })
+            </pre>
+            <p class="ans inline">OUTPUT :- </p><p class="red inline" id="ans4"></p>                
+        </div>
+        <hr>
+        <div class="question5">
+            <p class="bold">Q5: Create examples to explain callback function</p>
+            <p class="ans">ANS :-</p>
+            <pre class="ans">
+                #A callback function is a function passed to another function as an argument. Callbacks promote asynchronous programming
+
+
+                function divide(num1, num2, callback) {
+                    let output = num1 / num2;
+                    callback(output);
+                    }
+                          
+                    function division(output) {
+                    console.log('The result is: ' + output);
+                    }
+                          
+                divide(100, 100,  division);
+            </pre>
+            <p class="ans inline">OUTPUT :- </p><p class="red inline" id="ans5"></p>
+        </div>
+        <hr>
+        <div class="question6">
+            <p class="bold">Q6: Create examples to explain callback hell function</p>
+            <p class="ans">ANS:- </p>
+            <pre class="ans"></pre>
+        </div>
+
+    </div>
+
+
+
+
+    <script src="./script.js"></script>
+</body>
+</html>
